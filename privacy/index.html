@@ -3,16 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy</title>
+    <title>Privacy Policy - Now Departing</title>
     <style>
-        *{font-family: "Helvetica", Arial, sans-serif;}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #333;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        .back-arrow {
+            width: 24px;
+            height: 24px;
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #000;
+            font-weight: 700;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        a {
+            color: #0A84FF;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .trademark {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #ddd;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <a href="/" class="back-link">
+        <svg class="back-arrow" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to App
+    </a>
+
     <h1>Privacy Policy</h1>
     <p>This app does not collect, store, or share any personal information.</p>
     <p>If you have any questions, please contact us at <a href="mailto:info@move38.com">info@move38.com</a>.</p>
-    <br><br>
-    <p>App Store® and Apple Watch® are registered trademarks of Apple Inc.</p>
+    <p class="trademark">App Store® and Apple Watch® are registered trademarks of Apple Inc.</p>
 </body>
 </html>
