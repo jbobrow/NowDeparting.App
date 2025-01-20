@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Now Departing</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "HelveticaNeue", Arial, sans-serif;
+    }
+
+    body {
+        background: black;
+        color: white;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .hero {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 800px;
+    }
+
+    .title {
+        font-size: 4rem;
+        font-weight: bold;
+        text-align: left;
+        line-height: 3.6rem;
+    }
+
+    .arrow {
+        width: 80px;
+        height: 80px;
+    }
+
+    .watch-container {
+        position: relative;
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 0.8;
+        margin: 2rem 0;
+    }
+
+    .watch-screen {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 61%;
+        height: 61%;
+        border-radius: 35px;
+        overflow: hidden;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        border: 1px solid red;
+    }
+
+    .watch-screen img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+
+    .watch-frame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('img/AppleWatchS10.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 2;
+    }
+
+    .tagline {
+        font-size: 2rem;
+        margin: 2rem 0;
+    }
+
+    .app-store-button {
+        background: #000;
+        border-radius: 13px;
+        padding: 0.5rem 1.5rem;
+        display: inline-block;
+        transition: transform 0.2s;
+        margin: 1rem 0;
+    }
+
+    .app-store-button:hover {
+        transform: scale(1.05);
+    }
+
+    .app-store-button img {
+        height: 80px;
+    }
+
+    .credits {
+        margin-top: 4rem;
+        opacity: 0.8;
+        font-size: 0.9rem;
+    }
+
+    .credits a {
+        color: #0A84FF;
+        text-decoration: none;
+    }
+
+    .credits a:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .title {
+            font-size: 3rem;
+            text-align: center;
+        }
+
+        .arrow {
+            width: 110px;
+            height: 110px;
+        }
+
+        .watch-container {
+            max-width: 300px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="hero">
+        <div class="header">
+            <div class="title">
+                Now<br>Departing
+            </div>
+            <svg width="110" height="110" viewBox="0 0 176 178" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0.207739 34.2005L34.0491 0.359148L131.774 99.1205L128.235 46.891L174.465 48.0564L175.889 176.04L45.0561 177.465L44.0633 131.063L98.4511 132.444L0.207739 34.2005Z" fill="white" />
+            </svg>
+        </div>
+        <div class="watch-container">
+            <div class="watch-screen">
+                <img src="img/NowDepartingLoop_1.2025-01-20-15_15_19_min.gif" alt="Watch screen animation" />
+            </div>
+            <div class="watch-frame"></div>
+        </div>
+        <div class="tagline">
+            Know when your train is coming.<br>
+            That's it.
+        </div>
+        <a href="#" class="app-store-button">
+            <img src="img/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg" alt="Download on App Store">
+        </a>
+        <div class="credits">
+            <p>Created by Jonathan Bobrow</p>
+            <p style="margin-top: 2rem;">Special thanks to the following</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://github.com/jonthornton/MTAPI">MTAPI</a> - An Open Source JSON API for the NYC Subway<br>
+                <a href="https://scriptable.app">Scriptable</a> - A JavaScript Tool for quick prototype apps & widgets<br>
+                <a href="https://claude.ai/">Claude AI</a> & <a href="https://openai.com/chatgpt/">ChatGPT</a> - Assisting me with this native iOS Swift app
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
