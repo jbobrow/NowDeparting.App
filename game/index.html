@@ -304,6 +304,59 @@
         color: #FFE070;
     }
 
+    /* Commuters collected: silhouettes until you make the train with matcha */
+    .collection {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .collection-label {
+        font-size: 12px;
+        color: #a1a1a6;
+    }
+
+    .collection-slots {
+        display: flex;
+        gap: 8px;
+    }
+
+    .slot {
+        --pu: 4px;
+        width: 50px;
+        height: 52px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        padding-bottom: 6px;
+        background: #1c1c1e;
+    }
+
+    .slot svg {
+        display: block;
+        shape-rendering: crispEdges;
+        filter: brightness(0) invert(0.28);
+    }
+
+    .slot.got svg {
+        filter: none;
+    }
+
+    .slot.current {
+        box-shadow: inset 0 0 0 4px #FFE070;
+    }
+
+    .slot.new svg {
+        animation: collect 0.6s steps(4) both;
+    }
+
+    @keyframes collect {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+        100% { transform: translateY(0); }
+    }
+
     .card-actions {
         display: flex;
         flex-wrap: wrap;
@@ -463,7 +516,7 @@
             <div class="overlay" id="start">
                 <div class="card px-r3">
                     <h1 class="px"><span style="color: #01EC76">Matcha</span> or <span style="color: #FFE070">train?</span></h1>
-                    <p>Your L to 8 Av is 8 seconds out. Hold ← → to walk, and ↓ to head down to the subway. The corner shop does a mean matcha.</p>
+                    <p>Your L to 8 Av is 8 seconds out. Hold ← → to walk, and ↓ to head down to the subway. The corner shop does a mean matcha. Make the train with one in hand to collect all five commuters.</p>
                     <button class="btn px px-r2" id="start-btn">Start<kbd class="px-r1">Space</kbd></button>
                 </div>
             </div>
@@ -473,8 +526,12 @@
                     <div class="stars px" id="stars"></div>
                     <h2 class="px" id="result-title"></h2>
                     <p id="result-line"></p>
+                    <div class="collection">
+                        <div class="collection-label" id="collection-label"></div>
+                        <div class="collection-slots" id="collection-slots"><div class="slot px-r2" data-i="0"><svg viewBox="0 0 8 12" width="24" height="36" aria-hidden="true"><rect x="2" y="0" width="1" height="1" fill="#2B1D16"></rect><rect x="3" y="0" width="1" height="1" fill="#2B1D16"></rect><rect x="4" y="0" width="1" height="1" fill="#2B1D16"></rect><rect x="5" y="0" width="1" height="1" fill="#2B1D16"></rect><rect x="1" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="2" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="3" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="4" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="5" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="6" y="1" width="1" height="1" fill="#2B1D16"></rect><rect x="1" y="2" width="1" height="1" fill="#2B1D16"></rect><rect x="2" y="2" width="1" height="1" fill="#E8B48F"></rect><rect x="3" y="2" width="1" height="1" fill="#E8B48F"></rect><rect x="4" y="2" width="1" height="1" fill="#E8B48F"></rect><rect x="5" y="2" width="1" height="1" fill="#E8B48F"></rect><rect x="6" y="2" width="1" height="1" fill="#E8B48F"></rect><rect x="1" y="3" width="1" height="1" fill="#E8B48F"></rect><rect x="2" y="3" width="1" height="1" fill="#E8B48F"></rect><rect x="3" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="3" width="1" height="1" fill="#E8B48F"></rect><rect x="5" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="3" width="1" height="1" fill="#E8B48F"></rect><rect x="2" y="4" width="1" height="1" fill="#E8B48F"></rect><rect x="3" y="4" width="1" height="1" fill="#E8B48F"></rect><rect x="4" y="4" width="1" height="1" fill="#E8B48F"></rect><rect x="5" y="4" width="1" height="1" fill="#E8B48F"></rect><rect x="1" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="2" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="3" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="4" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="5" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="6" y="5" width="1" height="1" fill="#FF6319"></rect><rect x="0" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="1" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="2" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="3" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="4" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="5" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="6" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="7" y="6" width="1" height="1" fill="#FF6319"></rect><rect x="0" y="7" width="1" height="1" fill="#E8B48F"></rect><rect x="1" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="2" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="3" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="4" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="5" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="6" y="7" width="1" height="1" fill="#FF6319"></rect><rect x="7" y="7" width="1" height="1" fill="#E8B48F"></rect><rect x="1" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="2" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="3" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="4" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="5" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="1" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="2" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="5" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="1" y="10" width="1" height="1" fill="#1C4457"></rect><rect x="2" y="10" width="1" height="1" fill="#1C4457"></rect><rect x="5" y="10" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="10" width="1" height="1" fill="#1C4457"></rect><rect x="1" y="11" width="1" height="1" fill="#111111"></rect><rect x="2" y="11" width="1" height="1" fill="#111111"></rect><rect x="5" y="11" width="1" height="1" fill="#111111"></rect><rect x="6" y="11" width="1" height="1" fill="#111111"></rect></svg></div><div class="slot px-r2" data-i="1"><svg viewBox="0 0 8 12" width="24" height="36" aria-hidden="true"><rect x="1" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="2" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="3" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="4" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="5" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="6" y="0" width="1" height="1" fill="#1B1410"></rect><rect x="0" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="1" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="2" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="3" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="4" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="5" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="6" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="7" y="1" width="1" height="1" fill="#1B1410"></rect><rect x="0" y="2" width="1" height="1" fill="#1B1410"></rect><rect x="1" y="2" width="1" height="1" fill="#1B1410"></rect><rect x="2" y="2" width="1" height="1" fill="#8D5524"></rect><rect x="3" y="2" width="1" height="1" fill="#8D5524"></rect><rect x="4" y="2" width="1" height="1" fill="#8D5524"></rect><rect x="5" y="2" width="1" height="1" fill="#8D5524"></rect><rect x="6" y="2" width="1" height="1" fill="#1B1410"></rect><rect x="7" y="2" width="1" height="1" fill="#1B1410"></rect><rect x="0" y="3" width="1" height="1" fill="#1B1410"></rect><rect x="1" y="3" width="1" height="1" fill="#8D5524"></rect><rect x="2" y="3" width="1" height="1" fill="#8D5524"></rect><rect x="3" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="3" width="1" height="1" fill="#8D5524"></rect><rect x="5" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="3" width="1" height="1" fill="#8D5524"></rect><rect x="7" y="3" width="1" height="1" fill="#1B1410"></rect><rect x="1" y="4" width="1" height="1" fill="#1B1410"></rect><rect x="2" y="4" width="1" height="1" fill="#8D5524"></rect><rect x="3" y="4" width="1" height="1" fill="#8D5524"></rect><rect x="4" y="4" width="1" height="1" fill="#8D5524"></rect><rect x="5" y="4" width="1" height="1" fill="#8D5524"></rect><rect x="6" y="4" width="1" height="1" fill="#1B1410"></rect><rect x="1" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="2" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="3" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="4" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="5" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="6" y="5" width="1" height="1" fill="#FCCC0A"></rect><rect x="0" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="1" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="2" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="3" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="4" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="5" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="6" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="7" y="6" width="1" height="1" fill="#FCCC0A"></rect><rect x="0" y="7" width="1" height="1" fill="#8D5524"></rect><rect x="1" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="2" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="3" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="4" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="5" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="6" y="7" width="1" height="1" fill="#FCCC0A"></rect><rect x="7" y="7" width="1" height="1" fill="#8D5524"></rect><rect x="1" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="2" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="3" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="4" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="5" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="6" y="8" width="1" height="1" fill="#4A78C2"></rect><rect x="1" y="9" width="1" height="1" fill="#4A78C2"></rect><rect x="2" y="9" width="1" height="1" fill="#4A78C2"></rect><rect x="5" y="9" width="1" height="1" fill="#4A78C2"></rect><rect x="6" y="9" width="1" height="1" fill="#4A78C2"></rect><rect x="1" y="10" width="1" height="1" fill="#4A78C2"></rect><rect x="2" y="10" width="1" height="1" fill="#4A78C2"></rect><rect x="5" y="10" width="1" height="1" fill="#4A78C2"></rect><rect x="6" y="10" width="1" height="1" fill="#4A78C2"></rect><rect x="1" y="11" width="1" height="1" fill="#F2F2F2"></rect><rect x="2" y="11" width="1" height="1" fill="#F2F2F2"></rect><rect x="5" y="11" width="1" height="1" fill="#F2F2F2"></rect><rect x="6" y="11" width="1" height="1" fill="#F2F2F2"></rect></svg></div><div class="slot px-r2" data-i="2"><svg viewBox="0 0 8 12" width="24" height="36" aria-hidden="true"><rect x="2" y="0" width="1" height="1" fill="#1B1B1B"></rect><rect x="3" y="0" width="1" height="1" fill="#1B1B1B"></rect><rect x="4" y="0" width="1" height="1" fill="#1B1B1B"></rect><rect x="5" y="0" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="2" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="3" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="4" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="5" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="6" y="1" width="1" height="1" fill="#1B1B1B"></rect><rect x="0" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="2" y="2" width="1" height="1" fill="#C68642"></rect><rect x="3" y="2" width="1" height="1" fill="#C68642"></rect><rect x="4" y="2" width="1" height="1" fill="#C68642"></rect><rect x="5" y="2" width="1" height="1" fill="#C68642"></rect><rect x="6" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="7" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="0" y="3" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="3" width="1" height="1" fill="#C68642"></rect><rect x="2" y="3" width="1" height="1" fill="#C68642"></rect><rect x="3" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="3" width="1" height="1" fill="#C68642"></rect><rect x="5" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="3" width="1" height="1" fill="#C68642"></rect><rect x="7" y="3" width="1" height="1" fill="#1B1B1B"></rect><rect x="0" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="2" y="4" width="1" height="1" fill="#C68642"></rect><rect x="3" y="4" width="1" height="1" fill="#C68642"></rect><rect x="4" y="4" width="1" height="1" fill="#C68642"></rect><rect x="5" y="4" width="1" height="1" fill="#C68642"></rect><rect x="7" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="0" y="5" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="2" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="3" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="4" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="5" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="6" y="5" width="1" height="1" fill="#B83BAB"></rect><rect x="7" y="5" width="1" height="1" fill="#1B1B1B"></rect><rect x="0" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="1" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="2" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="3" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="4" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="5" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="6" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="7" y="6" width="1" height="1" fill="#B83BAB"></rect><rect x="0" y="7" width="1" height="1" fill="#C68642"></rect><rect x="1" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="2" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="3" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="4" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="5" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="6" y="7" width="1" height="1" fill="#B83BAB"></rect><rect x="7" y="7" width="1" height="1" fill="#C68642"></rect><rect x="1" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="2" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="3" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="4" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="5" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="0" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="1" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="2" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="3" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="4" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="5" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="7" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="1" y="10" width="1" height="1" fill="#C68642"></rect><rect x="2" y="10" width="1" height="1" fill="#C68642"></rect><rect x="5" y="10" width="1" height="1" fill="#C68642"></rect><rect x="6" y="10" width="1" height="1" fill="#C68642"></rect><rect x="1" y="11" width="1" height="1" fill="#E8443A"></rect><rect x="2" y="11" width="1" height="1" fill="#E8443A"></rect><rect x="5" y="11" width="1" height="1" fill="#E8443A"></rect><rect x="6" y="11" width="1" height="1" fill="#E8443A"></rect></svg></div><div class="slot px-r2" data-i="3"><svg viewBox="0 0 8 12" width="24" height="36" aria-hidden="true"><rect x="2" y="0" width="1" height="1" fill="#01EC76"></rect><rect x="3" y="0" width="1" height="1" fill="#01EC76"></rect><rect x="4" y="0" width="1" height="1" fill="#01EC76"></rect><rect x="5" y="0" width="1" height="1" fill="#01EC76"></rect><rect x="1" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="2" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="3" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="4" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="5" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="6" y="1" width="1" height="1" fill="#01EC76"></rect><rect x="1" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="2" y="2" width="1" height="1" fill="#F1C27D"></rect><rect x="3" y="2" width="1" height="1" fill="#F1C27D"></rect><rect x="4" y="2" width="1" height="1" fill="#F1C27D"></rect><rect x="5" y="2" width="1" height="1" fill="#F1C27D"></rect><rect x="6" y="2" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="3" width="1" height="1" fill="#F1C27D"></rect><rect x="2" y="3" width="1" height="1" fill="#F1C27D"></rect><rect x="3" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="3" width="1" height="1" fill="#F1C27D"></rect><rect x="5" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="3" width="1" height="1" fill="#F1C27D"></rect><rect x="2" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="3" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="4" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="5" y="4" width="1" height="1" fill="#1B1B1B"></rect><rect x="1" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="2" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="3" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="4" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="5" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="6" y="5" width="1" height="1" fill="#0039A6"></rect><rect x="0" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="1" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="2" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="3" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="4" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="5" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="6" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="7" y="6" width="1" height="1" fill="#0039A6"></rect><rect x="0" y="7" width="1" height="1" fill="#F1C27D"></rect><rect x="1" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="2" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="3" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="4" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="5" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="6" y="7" width="1" height="1" fill="#0039A6"></rect><rect x="7" y="7" width="1" height="1" fill="#F1C27D"></rect><rect x="1" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="2" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="3" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="4" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="5" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="6" y="8" width="1" height="1" fill="#C8A97E"></rect><rect x="1" y="9" width="1" height="1" fill="#C8A97E"></rect><rect x="2" y="9" width="1" height="1" fill="#C8A97E"></rect><rect x="5" y="9" width="1" height="1" fill="#C8A97E"></rect><rect x="6" y="9" width="1" height="1" fill="#C8A97E"></rect><rect x="1" y="10" width="1" height="1" fill="#C8A97E"></rect><rect x="2" y="10" width="1" height="1" fill="#C8A97E"></rect><rect x="5" y="10" width="1" height="1" fill="#C8A97E"></rect><rect x="6" y="10" width="1" height="1" fill="#C8A97E"></rect><rect x="1" y="11" width="1" height="1" fill="#6B3E26"></rect><rect x="2" y="11" width="1" height="1" fill="#6B3E26"></rect><rect x="5" y="11" width="1" height="1" fill="#6B3E26"></rect><rect x="6" y="11" width="1" height="1" fill="#6B3E26"></rect></svg></div><div class="slot px-r2" data-i="4"><svg viewBox="0 0 10 12" width="30" height="36" aria-hidden="true"><rect x="2" y="0" width="1" height="1" fill="#3B2A20"></rect><rect x="3" y="0" width="1" height="1" fill="#3B2A20"></rect><rect x="4" y="0" width="1" height="1" fill="#3B2A20"></rect><rect x="5" y="0" width="1" height="1" fill="#3B2A20"></rect><rect x="1" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="2" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="3" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="4" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="5" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="6" y="1" width="1" height="1" fill="#3B2A20"></rect><rect x="1" y="2" width="1" height="1" fill="#3B2A20"></rect><rect x="2" y="2" width="1" height="1" fill="#A0673D"></rect><rect x="3" y="2" width="1" height="1" fill="#A0673D"></rect><rect x="4" y="2" width="1" height="1" fill="#A0673D"></rect><rect x="5" y="2" width="1" height="1" fill="#A0673D"></rect><rect x="6" y="2" width="1" height="1" fill="#A0673D"></rect><rect x="1" y="3" width="1" height="1" fill="#A0673D"></rect><rect x="2" y="3" width="1" height="1" fill="#A0673D"></rect><rect x="3" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="3" width="1" height="1" fill="#A0673D"></rect><rect x="5" y="3" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="3" width="1" height="1" fill="#A0673D"></rect><rect x="0" y="4" width="1" height="1" fill="#8E959C"></rect><rect x="2" y="4" width="1" height="1" fill="#A0673D"></rect><rect x="3" y="4" width="1" height="1" fill="#A0673D"></rect><rect x="4" y="4" width="1" height="1" fill="#A0673D"></rect><rect x="5" y="4" width="1" height="1" fill="#A0673D"></rect><rect x="0" y="5" width="1" height="1" fill="#8E959C"></rect><rect x="1" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="2" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="3" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="4" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="5" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="6" y="5" width="1" height="1" fill="#6CBE45"></rect><rect x="0" y="6" width="1" height="1" fill="#8E959C"></rect><rect x="1" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="2" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="3" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="4" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="5" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="6" y="6" width="1" height="1" fill="#6CBE45"></rect><rect x="7" y="6" width="1" height="1" fill="#A0673D"></rect><rect x="0" y="7" width="1" height="1" fill="#8E959C"></rect><rect x="1" y="7" width="1" height="1" fill="#1E1E1E"></rect><rect x="2" y="7" width="1" height="1" fill="#1E1E1E"></rect><rect x="3" y="7" width="1" height="1" fill="#1E1E1E"></rect><rect x="4" y="7" width="1" height="1" fill="#6CBE45"></rect><rect x="5" y="7" width="1" height="1" fill="#1C4457"></rect><rect x="6" y="7" width="1" height="1" fill="#1C4457"></rect><rect x="7" y="7" width="1" height="1" fill="#1C4457"></rect><rect x="8" y="7" width="1" height="1" fill="#1C4457"></rect><rect x="0" y="8" width="1" height="1" fill="#1E1E1E"></rect><rect x="2" y="8" width="1" height="1" fill="#8E959C"></rect><rect x="4" y="8" width="1" height="1" fill="#1E1E1E"></rect><rect x="5" y="8" width="1" height="1" fill="#1E1E1E"></rect><rect x="7" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="8" y="8" width="1" height="1" fill="#1C4457"></rect><rect x="0" y="9" width="1" height="1" fill="#1E1E1E"></rect><rect x="1" y="9" width="1" height="1" fill="#8E959C"></rect><rect x="2" y="9" width="1" height="1" fill="#8E959C"></rect><rect x="3" y="9" width="1" height="1" fill="#8E959C"></rect><rect x="4" y="9" width="1" height="1" fill="#1E1E1E"></rect><rect x="7" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="8" y="9" width="1" height="1" fill="#1C4457"></rect><rect x="0" y="10" width="1" height="1" fill="#1E1E1E"></rect><rect x="2" y="10" width="1" height="1" fill="#8E959C"></rect><rect x="4" y="10" width="1" height="1" fill="#1E1E1E"></rect><rect x="7" y="10" width="1" height="1" fill="#111111"></rect><rect x="8" y="10" width="1" height="1" fill="#111111"></rect><rect x="9" y="10" width="1" height="1" fill="#111111"></rect><rect x="1" y="11" width="1" height="1" fill="#1E1E1E"></rect><rect x="2" y="11" width="1" height="1" fill="#1E1E1E"></rect><rect x="3" y="11" width="1" height="1" fill="#1E1E1E"></rect><rect x="6" y="11" width="1" height="1" fill="#5B6470"></rect><rect x="9" y="11" width="1" height="1" fill="#5B6470"></rect></svg></div></div>
+                    </div>
                     <div class="card-actions">
-                        <button class="btn px px-r2" id="again-btn">Play again<kbd class="px-r1">Space</kbd></button>
+                        <button class="btn px px-r2" id="again-btn"><span id="again-label">Play again</span><kbd class="px-r1">Space</kbd></button>
                         <a class="home-link" href="/">Back to Now Departing</a>
                     </div>
                 </div>
@@ -498,12 +555,40 @@
         var train = $('train'), person = $('person'), body = $('body'), idle = $('idle'), walkFrame = $('walk'), cupEl = $('cup');
         var bubble = $('bubble'), bubbleText = $('bubble-text'), count = $('count'), matchaLabel = $('matcha-label');
 
-        // Five commuters; each visit gets one at random. ?commuter=1 (to 5) picks one.
+        // ---- Five commuters. A three-star round collects the one you're playing and
+        //      moves on to the next; the collection is kept in this browser.
+        //      ?commuter=1 (to 5) picks one to start with.
+        var COMMUTERS = 5, STORE = 'nowdeparting.commuters';
+        var collected = [];
+        try { collected = JSON.parse(localStorage.getItem(STORE)) || []; } catch (e) { collected = []; }
+        function isCollected(i) { return collected.indexOf(i) !== -1; }
+        function saveCollected() {
+            try { localStorage.setItem(STORE, JSON.stringify(collected)); } catch (e) { /* private mode: keep it for this visit */ }
+        }
+        function nextCommuter(from) {
+            for (var k = 1; k <= COMMUTERS; k++) {
+                var i = (from + k) % COMMUTERS;
+                if (!isCollected(i)) return i;
+            }
+            return (from + 1) % COMMUTERS;   // all five collected: keep cycling
+        }
+        function randomCommuter() {
+            var open = [];
+            for (var i = 0; i < COMMUTERS; i++) if (!isCollected(i)) open.push(i);
+            if (!open.length) open = [0, 1, 2, 3, 4];
+            return open[Math.floor(Math.random() * open.length)];
+        }
+
+        var CHAR, CHAIR, SPRITE_W, WALK_SPEED, upNext = null;
+        function setCommuter(i) {
+            CHAR = i;
+            CHAIR = i === 4;                      // rides the elevator, not the stairs
+            SPRITE_W = CHAIR ? 10 : 8;
+            WALK_SPEED = CHAIR ? 52 : 48;         // scene pixels per second
+            person.setAttribute('data-char', i);
+        }
         var picked = parseInt(new URLSearchParams(location.search).get('commuter'), 10);
-        var CHAR = picked >= 1 && picked <= 5 ? picked - 1 : Math.floor(Math.random() * 5);
-        person.setAttribute('data-char', CHAR);
-        var CHAIR = CHAR === 4;                   // rides the elevator, not the stairs
-        var SPRITE_W = CHAIR ? 10 : 8;
+        setCommuter(picked >= 1 && picked <= 5 ? picked - 1 : randomCommuter());
         var cabEl = $('cab');
 
         // ---- Fit the 960×600 stage to the window ----
@@ -522,7 +607,7 @@
         var FLIGHT = Math.hypot(STAIRS_FOOT.x - STAIRS_TOP.x, STAIRS_FOOT.y - STAIRS_TOP.y);
         var STAIRS_LEN = FLIGHT + (LANDING.y - STAIRS_FOOT.y);
         var DOORS = [57, 87, 157, 187];           // door centers when the train is in
-        var WALK_SPEED = CHAIR ? 52 : 48, STAIRS_SPEED = 60;   // scene pixels per second
+        var STAIRS_SPEED = 60;                    // scene pixels per second
         var ELEV_X = 220, ELEV_LEN = PLATFORM_Y - STREET_Y, ELEV_SPEED = 30;
 
         // ---- Game state ----
@@ -611,6 +696,7 @@
         }
 
         function start() {
+            if (upNext !== null) { setCommuter(upNext); upNext = null; }
             reset('playing');
             timers.push(setInterval(tick, 1000));
         }
@@ -733,13 +819,28 @@
             clear();
             render();
             var r;
-            if (s.onboard && s.hasMatcha) r = ['★★★', 'Perfect commute', 'Matcha in hand, doors closing behind you.'];
+            var perfect = s.onboard && s.hasMatcha, gotNew = perfect && !isCollected(CHAR);
+            if (gotNew) { collected.push(CHAR); saveCollected(); }
+            if (perfect) {
+                upNext = nextCommuter(CHAR);
+                r = ['★★★', 'Perfect commute', collected.length === COMMUTERS
+                    ? (gotNew ? 'All five commuters made their train, matcha in hand. Brooklyn thanks you.' : 'Matcha in hand, doors closing behind you.')
+                    : 'Matcha in hand, doors closing behind you. Commuter collected!'];
+            }
             else if (s.onboard) r = ['★★☆', 'Made it!', 'On time. Matcha-less, but on time.'];
             else if (s.hasMatcha) r = ['★☆☆', 'Missed the L', 'At least the matcha is good. Next L in 6 min.'];
             else r = ['☆☆☆', 'No train, no matcha', 'Should have checked Now Departing.'];
             $('stars').textContent = r[0];
             $('result-title').textContent = r[1];
             $('result-line').textContent = r[2];
+            $('again-label').textContent = perfect ? 'Next commuter' : 'Play again';
+            $('collection-label').textContent = 'Commuters ' + collected.length + '/' + COMMUTERS;
+            Array.prototype.forEach.call(document.querySelectorAll('.slot'), function (slot) {
+                var i = +slot.getAttribute('data-i');
+                slot.classList.toggle('got', isCollected(i));
+                slot.classList.toggle('current', i === CHAR);
+                slot.classList.toggle('new', gotNew && i === CHAR);
+            });
             $('done').hidden = false;
             $('again-btn').focus({ preventScroll: true });
         }
