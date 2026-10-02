@@ -9,7 +9,7 @@
     <!-- meta details -->
     <meta property="og:title" content="Now Departing - Live NYC Subway countdowns" />
     <meta property="og:description" content="Now Departing puts live NYC subway departure times on your iPhone, Home Screen, Lock Screen and Apple Watch." />
-    <meta property="og:image" content="https://nowdeparting.app/img/og-image.png" />
+    <meta property="og:image" content="https://nowdeparting.app/img/og-image.png?v=2" />
     <meta property="og:url" content="https://nowdeparting.app" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Now Departing" />
@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Now Departing - Live NYC Subway countdowns" />
     <meta name="twitter:description" content="Now Departing puts live NYC subway departure times on your iPhone, Home Screen, Lock Screen and Apple Watch." />
-    <meta name="twitter:image" content="https://nowdeparting.app/img/og-image.png" />
+    <meta name="twitter:image" content="https://nowdeparting.app/img/og-image.png?v=2" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap" rel="stylesheet">
@@ -327,8 +327,7 @@
     }
 
     .row-times {
-        flex: 0 1 auto;
-        max-width: 31%;
+        flex: none;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -336,8 +335,9 @@
         text-align: right;
     }
 
+    /* One line of upcoming trains in the demo, no wrapping */
     .row-times span {
-        text-align: left;
+        white-space: nowrap;
     }
 
     .row-times b {
@@ -1205,7 +1205,7 @@
                 h += '<div class="row" data-i="' + i + '">' + badge(r.line) + (r.alert ? ALERT : '') + '</div>' +
                     '<div class="row-text"><b>' + r.dir.replace(' & ', ' &\u00A0') + '</b><span>to ' + r.to + '</span></div>' +
                     '<div class="row-times"><b>' + timeText(r.times[0], col, 26, true) + '</b>' +
-                    (r.times.length > 1 ? '<span>' + r.times.slice(1, 6).map(function (t) { return timeText(t, col, 14); }).join(', ') + '</span>' : '') +
+                    (r.times.length > 1 ? '<span>' + r.times.slice(1, 4).map(function (t) { return timeText(t, col, 14); }).join(', ') + '</span>' : '') +
                     '</div>' + CHEV + '</div>';
             });
             list.innerHTML = h;
