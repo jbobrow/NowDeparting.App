@@ -739,8 +739,37 @@
 
     /* ---------- Footer, like the other app sites ---------- */
 
+    /* Same pill as the NYC Parking site */
+    .download {
+        margin-top: 4rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 26px;
+        border-radius: 999px;
+        background: #000;
+        color: #fff;
+        font-size: 17px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.15s ease;
+    }
+
+    .download svg {
+        flex: none;
+        margin-top: -2px;   /* optical centering: the logo's leaf sits high */
+    }
+
+    .download:hover {
+        transform: scale(1.04);
+    }
+
+    .download:active {
+        transform: scale(0.97);
+    }
+
     footer {
-        margin-top: 4.5rem;
+        margin-top: 26px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -960,15 +989,6 @@
         }
     }
     </style>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCFMRFN7ZC"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-JCFMRFN7ZC');
-    </script>
 </head>
 
 <body>
@@ -1106,6 +1126,11 @@
                 </div>
             </div>
         </section>
+
+        <a class="download" href="https://apps.apple.com/us/app/now-departing/id6740440448">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            Download for iPhone
+        </a>
 
         <footer>
             <nav class="footer-links" aria-label="Footer links">
@@ -1295,7 +1320,8 @@
             at(13150, function () { screen.classList.add('on-lines'); });
             at(13600, resetList);
             at(15400, function () {
-                var b = document.querySelectorAll('#lines-grid .badge')[22];
+                var badges = document.querySelectorAll('#lines-grid .badge');
+                var b = badges[badges.length - 1];   // the L
                 b.classList.add('pop');
                 setTimeout(function () { b.classList.remove('pop'); }, 260);
             });
