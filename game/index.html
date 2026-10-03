@@ -516,7 +516,7 @@
             <div class="overlay" id="start">
                 <div class="card px-r3">
                     <h1 class="px"><span style="color: #01EC76">Matcha</span> or <span style="color: #FFE070">train?</span></h1>
-                    <p>Your L to 8 Av is 8 seconds out. Hold ← → to walk, and ↓ to head down to the subway. The corner shop does a mean matcha.</p>
+                    <p>Your L to 8 Av is <span id="lead">8</span> seconds out. Hold ← → to walk, and ↓ to head down to the subway. The corner shop does a mean matcha.</p>
                     <button class="btn px px-r2" id="start-btn">Start<kbd class="px-r1">Space</kbd></button>
                 </div>
             </div>
@@ -560,6 +560,10 @@
         //      ?commuter=1 (to 5) picks one to start with.
         var COMMUTERS = 5, STORE = 'nowdeparting.commuters';
         var collected = [];
+
+        // The first commuter gets twice the time; each one collected takes 2 seconds
+        // off, so the fifth is back to the original 8.
+        function leadTime() { return 16 - 2 * Math.min(collected.length, 4); }
         try { collected = JSON.parse(localStorage.getItem(STORE)) || []; } catch (e) { collected = []; }
         function isCollected(i) { return collected.indexOf(i) !== -1; }
         function saveCollected() {
@@ -615,7 +619,7 @@
 
         function fresh(phase) {
             return {
-                phase: phase, t: 8, train: 'away', onboard: false, hasMatcha: false,
+                phase: phase, t: leadTime(), train: 'away', onboard: false, hasMatcha: false,
                 where: 'street', x: 100, d: 0, cab: 0, facing: 1, walking: false, anim: 0,
                 brew: 0, brewNeed: 1.8 + Math.random() * 2.2, note: '', noteUntil: 0, missed: ''
             };
@@ -891,6 +895,7 @@
         });
 
         reset('ready');
+        $('lead').textContent = leadTime();
         $('start-btn').focus({ preventScroll: true });
 
         // ---- Time of day: sunrise, day, sunset or night, from the local clock.
