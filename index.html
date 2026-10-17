@@ -84,6 +84,11 @@
         letter-spacing: -0.125rem;
     }
 
+    /* Helvetica Neue's r and t touch at this tracking; open just that pair */
+    .title .kern-rt {
+        letter-spacing: 0.02em;
+    }
+
     .arrow {
         width: 6.5rem;
         height: 6.5rem;
@@ -1001,7 +1006,7 @@
     <main class="hero">
         <div class="hero-copy">
             <div class="header">
-                <h1 class="title">Now<br>Departing</h1>
+                <h1 class="title">Now<br>Depa<span class="kern-rt">r</span>ting</h1>
                 <svg class="arrow" viewBox="0 0 176 176" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                     <path d="M0 34L34 0L132 100L132 46L176 46L176 176L46 176L46 132L100 132L0 34Z" fill="white" />
                 </svg>
